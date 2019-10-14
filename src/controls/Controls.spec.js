@@ -11,13 +11,27 @@
 // - the locked toggle button is disabled if the gate is open
 
 // Test away!
-
 import React from "react";
-
 import {render, fireEvent } from "@testing-library/react";
-
 import Controls from "../controls/Controls";
 
 test("Controls renders correctly", () => {
     expect(render(<Controls />)).toMatchSnapshot();
 });
+
+test("toggled-locked and toggle-closed is called on button clicks", () => {
+    const toggleLocked = jest.fn();
+    const toggleClosed = jest.fn();
+    const { getByText } = render(
+        <Controls 
+        toggleLocked={toggleLocked}
+        toggleClosed={toggleClosed}
+         />
+    );
+    fireEvent.click(getByText(/toggle locked/));
+    expect(toggleLocked).toHaveBeenCalled();
+    fireEvent.click(getByText(/toggle closed/));
+    expect(toggleClosed).toHaveBeenCalled();
+})
+
+

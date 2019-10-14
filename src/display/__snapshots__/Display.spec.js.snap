@@ -1,42 +1,40 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `
+exports[`Display renders correctly 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
       <div
-        class="controls panel"
+        class="display panel"
       >
-        <button
-          class="toggle-btn"
-          disabled=""
+        <div
+          class="led green-led"
         >
-          Lock Gate
-        </button>
-        <button
-          class="toggle-btn"
+          Unlocked
+        </div>
+        <div
+          class="led green-led"
         >
-          Close Gate
-        </button>
+          Open
+        </div>
       </div>
     </div>
   </body>,
   "container": <div>
     <div
-      class="controls panel"
+      class="display panel"
     >
-      <button
-        class="toggle-btn"
-        disabled=""
+      <div
+        class="led green-led"
       >
-        Lock Gate
-      </button>
-      <button
-        class="toggle-btn"
+        Unlocked
+      </div>
+      <div
+        class="led green-led"
       >
-        Close Gate
-      </button>
+        Open
+      </div>
     </div>
   </div>,
   "debug": [Function],

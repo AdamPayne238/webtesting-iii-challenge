@@ -14,6 +14,6 @@ import {render, fireEvent } from "@testing-library/react";
 
 import Display from "../display/Display";
 
-test("renders correctly", () => {
+test("Display renders correctly", () => {
     expect(render(<Display />)).toMatchSnapshot();
 });
