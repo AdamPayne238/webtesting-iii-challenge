@@ -13,3 +13,4 @@ import Dashboard from "../dashboard/Dashboard";
 test("Dashboard renders correctly", () => {
     expect(render(<Dashboard />)).toMatchSnapshot();
 });
+

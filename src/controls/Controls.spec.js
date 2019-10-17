@@ -12,7 +12,7 @@
 
 // Test away!
 import React from "react";
-import {render, fireEvent } from "@testing-library/react";
+import { render, fireEvent } from "@testing-library/react";
 import Controls from "../controls/Controls";
 
 test("Controls renders correctly", () => {
@@ -28,10 +28,27 @@ test("toggled-locked and toggle-closed is called on button clicks", () => {
         toggleClosed={toggleClosed}
          />
     );
-    fireEvent.click(getByText(/toggle locked/));
-    expect(toggleLocked).toHaveBeenCalled();
-    fireEvent.click(getByText(/toggle closed/));
+    // fireEvent.click(getByText(/toggle locked/));
+    // expect(toggleLocked).toHaveBeenCalled();
+    fireEvent.click(getByText(/Close Gate/i));
     expect(toggleClosed).toHaveBeenCalled();
+})
+
+test("ToggleOpen opens Gate and toggleLocked locks gate", () => {
+    const toggleLocked = jest.fn();
+    const toggleOpen = jest.fn();
+    const { getByText } = render(
+        <Controls 
+        locked={false}
+        closed={true}
+        toggleLocked={toggleLocked}
+        toggleClosed={toggleOpen}
+         />
+    );
+    fireEvent.click(getByText(/Open Gate/i));
+    expect(toggleOpen).toHaveBeenCalled();
+    fireEvent.click(getByText(/Lock Gate/i));
+    expect(toggleLocked).toHaveBeenCalled();
 })
 
 
